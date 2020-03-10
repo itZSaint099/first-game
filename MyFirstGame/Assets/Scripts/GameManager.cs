@@ -13,19 +13,21 @@ public class GameManager : MonoBehaviour
     {
         completeLevelUI.SetActive(true);
     }
+
     public void GameOver()
     {
         if(endGame == false)
         {
             endGame = true;
-            //Debug.Log("GAME OVER");
+            
             // Restart Ganme
-            Invoke("Restart", restartDelay);
+            Invoke("RestartGame", restartDelay);
+            //Debug.Log("GAME OVER");
         }
     }
 
-    void Restart ()
+    public void RestartGame ()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
